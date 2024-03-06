@@ -1,0 +1,18 @@
+import React,{ReactNode} from "react";
+import styles from './Modal.module.css'
+
+interface ModalProps{
+    isOpen:boolean
+    setOpen:Function
+    children?:ReactNode
+}
+export default function Modal({isOpen,setOpen,children}:ModalProps){
+    
+    return(
+        <div className={`${styles.ModalContainer} ${isOpen?styles.open:styles.close}`}>
+        <div className={styles.modalBody}>
+            {children}
+        </div>
+        </div>
+        )
+}

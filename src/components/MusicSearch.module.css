@@ -1,0 +1,104 @@
+.ModalContainer{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.2);
+    z-index: 10;
+    animation: fadeOut 0.25s ease-out forwards;
+}
+
+.open {
+  animation-name: fadeIn;
+}
+.close{
+    transition: all 0.2s;
+    visibility: hidden;
+}
+.cdWrap{
+    float: left;
+    margin: 0.3rem;
+    width: 5rem;
+    padding: 0.2rem;
+    text-overflow: ellipsis;
+}
+.title{
+    width: 5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.artist{
+    width: 5rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.cd{
+    width: 5rem;
+    height:5rem;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0.15rem 0.15rem 0.3rem rgba(0,0,0,0.5);
+}
+.cd > img{
+    width: 100%;
+    height: 100%;
+}
+.cdHole{
+    width: 1rem;
+    height: 1rem;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.modalBody{
+    width: 30rem;
+    height: 30rem;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 1rem;
+    overflow: scroll;
+}
+.modalBody > input{
+    border: none;
+    width: 25rem;
+    margin: 0 auto;
+    display: block;
+    margin-top: 1rem;
+    box-shadow: inset 0.2rem 0.2rem 0.3rem #bebebe,
+            inset -0.2rem -0.2rem 0.4rem #ffffff;
+    height: 2rem;
+    border:0.1rem solid rgba(0,0,0,0.1);
+    font-family: 'AppleSDGothicNeo', serif;
+    font-size: 1.1rem;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+}
+.modalBody > input:focus{
+    outline: none;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

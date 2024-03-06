@@ -1,0 +1,57 @@
+.MusicPlayerContainer{
+    width: 20rem;
+    padding: 0.2rem;
+    border-radius: 0.3rem;
+    box-shadow:  5px 5px 10px #b7b7b5,
+             -5px -5px 10px #ffffff;
+    overflow: hidden;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+.CDPlayer_CD{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.CDPlayer_CD > img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.CDPlayer{
+    padding: 0.4rem;
+    box-shadow: inset 0.3rem 0.3rem 0.6rem rgba(0,0,0,0.2);
+    border: 0.1rem solid #e2e2e2;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    float: left;
+    display: block;
+}
+.CDPlayer_info{
+    margin-left: 1rem;
+    display: inline-block;
+    float: left;
+    margin-top: -0.5rem;
+}
+.CDPlayer_Pin{
+    width: 25%;
+    height: 25%;
+    background: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  0.1rem 1rem 1rem #d4d4d4,
+             -1rem -1rem 1rem #ffffff;
+}
+.CDPlayer_controll{
+    display: inline-block;
+    padding: 0.5rem;
+    margin-left: auto;
+}
