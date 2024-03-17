@@ -5,21 +5,26 @@ import CardGrid from './components/CardGrid'
 import CardDisk from './components/CardDisk'
 import MusicPlayer from './components/MusicPlayer'
 import EditorModal from './modals/EditorModal'
+import SettingModal from './modals/SettingModal'
 import axios from 'axios'
 import './App.css'
+import {GlobalStyle} from './theme/GlobalStyle'
 import { ReactComponent as ListIcon } from "./assets/list.svg";
 import { ReactComponent as DiscIcon } from "./assets/disc.svg";
 import { ReactComponent as GridIcon } from "./assets/grid.svg";
 import Masonry from "react-responsive-masonry"
+import {ThemeProvider} from './context/themeProvider'
 
 function App(){
     const [viewType,setViewType] = useState(1) 
     const [editorOpen,setEditorOpen] = useState(false)
+    const [settingOpen,setSettingOpen] = useState(false)
     const [audio,setAudio] = useState({artwork:'https://i.scdn.co/image/ab67616d0000b273f538596da78b3e822f05bf53',title:'김철수씨 이야기',artist:'허회경'}) 
     const [audioSource,setSource] = useState(null)
     const [selected,setSelected] = useState(null)
     const [view,setView] = useState([]) 
     const audioRef = useRef()
+    
     
     const prSetSource = (src) => {
         return new Promise(function (resolve, reject) {
@@ -48,9 +53,11 @@ function App(){
     const [offset,setOffset] = useState(0)
     useEffect((e)=>{
         try{
-            axios.get(`/api/row/${offset}`)
+            axios.get(`https://study-exhibition.koyeb.app/row/${offset}`)
             .then((res)=>{
                 setView(res.data)
+            }).catch((error)=>{
+                console.log(error)
             })
         }catch(e){
             
@@ -58,11 +65,14 @@ function App(){
     },[offset])
   return (
       <>
+      <ThemeProvider>
+      <GlobalStyle/>
       <EditorModal isOpen={editorOpen} setOpen={setEditorOpen}/>
+      <SettingModal isOpen={settingOpen} setOpen={setSettingOpen}/>
       <div className='write_btn' onClick={()=>setEditorOpen(true)}>
         <div></div>
       </div>
-      <div className='setMode_btn'>
+      <div className='setMode_btn' onClick={()=>setSettingOpen(true)}>
         <div></div>
       </div>
       <div className='header'>
@@ -100,6 +110,7 @@ function App(){
                 )
             }
        </div>}
+       </ThemeProvider>
       </>
     )
 };

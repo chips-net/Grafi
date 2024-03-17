@@ -45,15 +45,17 @@ module.exports = {
       {
         test: /\.svg$/,
         use: ["@svgr/webpack","file-loader"],
-      }
+      },
+      
+      
     ],
   },
   devServer: {
     historyApiFallback: true,
     proxy: {
       "/api": {
-        target: "http://localhost:3000",
-        pathRewrite: {"/api": "/"},
+        target: "https://study-exhibition.koyeb.app",
+        pathRewrite: {"/api": ""},
       },
       "/vercel": {
         target: "http://vercel.com",
